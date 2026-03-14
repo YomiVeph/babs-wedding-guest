@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tara & Tunde – Save The Date</title>
+
+    <!-- Speed: early connection to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&family=Cinzel+Decorative:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Preload door + seal images with high priority — ready before first paint -->
+    <link
+      rel="preload"
+      as="image"
+      href="image/Left.png"
+      fetchpriority="high"
+      media="(min-width: 601px)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="image/right.png"
+      fetchpriority="high"
+      media="(min-width: 601px)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="image/seal.png"
+      fetchpriority="high"
+      media="(min-width: 601px)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="image/left-mobile.png"
+      fetchpriority="high"
+      media="(max-width: 600px)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="image/right-mobile.png"
+      fetchpriority="high"
+      media="(max-width: 600px)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="image/seal-mobile.png"
+      fetchpriority="high"
+      media="(max-width: 600px)"
+    />
+
+    <link rel="stylesheet" href="babs.css" />
+  </head>
+  <body>
+    <div class="scene" id="scene">
+      <!-- Invitation content revealed behind the doors -->
+      <div class="content-card" id="contentCard">
+        <div class="invite-content">
+          <p class="eyebrow">You are cordially invited to the wedding</p>
+          <h1>Save the Date</h1>
+          <div class="names">
+            <img
+              class="names-img-desktop"
+              src="image/picture-name.png"
+              alt="Tara and Tunde"
+            />
+            <img
+              class="names-img-mobile"
+              src="image/Frame 2121459200.png"
+              alt="Tara & Tunde"
+            />
+          </div>
+          <div class="divider"></div>
+          <div class="detail-msg">
+            kindly join us as we celebrate the beginning of forever
+          </div>
+          <div class="event-details">
+            <div class="detail-col">
+              <span class="detail-label">SAT</span>
+              <span class="detail-label">11:30</span>
+            </div>
+            <div class="detail-divider">|</div>
+            <div class="detail-day">04</div>
+            <div class="detail-divider">|</div>
+            <div class="detail-col">
+              <span class="detail-label">APRIL</span>
+              <span class="detail-label">2026</span>
+            </div>
+          </div>
+          <div class="venue">
+            12, First Avenue Housing Estate, Ibara<br />Adjacent Dr Spa Salon
+          </div>
+          <div class="action-btns">
+            <a href="my-rsvp.html" class="action-btn">
+              <span class="material-symbols-outlined">mail</span> RSVP HERE
+            </a>
+            <a
+              href="https://maps.google.com/?q=12+First+Avenue+Housing+Estate+Ibara"
+              target="_blank"
+              class="action-btn"
+            >
+              <span class="material-symbols-outlined">location_on</span>
+              LOCATION
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <canvas id="particles"></canvas>
+
+      <div class="doors" id="doors">
+        <!-- Left door — seal lives here so it slides left with this door -->
+        <div class="door left">
+          <div class="door-face"></div>
+          <div class="seal" id="seal">
+            <img
+              src="image/seal.png"
+              alt="Wax Seal"
+              loading="eager"
+              decoding="sync"
+            />
+          </div>
+        </div>
+        <!-- Right door -->
+        <div class="door right">
+          <div class="door-face"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="babs.js" defer></script>
+  </body>
+</html>

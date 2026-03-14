@@ -1,0 +1,378 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0d0404;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: "Cormorant Garamond", serif;
+  padding: 0;
+}
+
+.scene {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.8);
+  width: min(1200px, 100vw - 32px);
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* ── WHITE CONTENT CARD ── */
+.content-card {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.8s ease 0.6s;
+}
+
+.content-card.revealed {
+  opacity: 1;
+}
+
+.invite-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: clamp(20px, 5%, 48px);
+  color: #2a0a0a;
+  width: 100%;
+}
+
+.eyebrow {
+  font-family: "Cinzel", serif;
+  font-size: 16px;
+  letter-spacing: 0.4em;
+  color: #5a1a1a;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.invite-content h1 {
+  font-family: "Cinzel Decorative", serif;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: clamp(24px, 2vw, 40px);
+  letter-spacing: clamp(3px, 0.7vw, 7px);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 97%;
+  color: #000;
+  margin-bottom: clamp(12px, 2.5%, 20px);
+}
+
+.names {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.invite-content .names img {
+  height: 320px;
+}
+
+.names-img-mobile {
+  display: none;
+}
+
+.detail-msg {
+  font-style: italic;
+  font-size: 20px;
+}
+
+.invite-content .divider {
+  width: clamp(40px, 6vw, 60px);
+  height: 1px;
+  background: #c9a84c;
+  margin: clamp(12px, 2.5%, 22px) auto;
+}
+
+/* ── EVENT DETAILS ── */
+.event-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 2vw, 20px);
+  margin: clamp(10px, 2%, 18px) 0;
+}
+
+.detail-day {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(40px, 7vw, 72px);
+  font-weight: 300;
+  color: #1a0505;
+  line-height: 1;
+}
+
+.detail-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.detail-label {
+  font-family: "Cinzel", serif;
+  font-size: clamp(16px, 2vw, 20px);
+  letter-spacing: clamp(1px, 0.3vw, 3px);
+  color: #000;
+}
+
+.detail-divider {
+  font-size: clamp(20px, 4vw, 40px);
+  color: #333;
+  font-weight: 100;
+  line-height: 1;
+}
+
+.action-btns {
+  display: flex;
+  gap: clamp(10px, 2vw, 24px);
+  justify-content: center;
+  margin-top: clamp(8px, 1.5%, 16px);
+  padding: 8px;
+  overflow: visible;
+}
+
+.action-btn .material-symbols-outlined {
+  font-size: clamp(14px, 1.8vw, 18px);
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.action-btn {
+  font-family: "Cinzel", serif;
+  font-size: clamp(7px, 1vw, 10px);
+  letter-spacing: clamp(1px, 0.3vw, 2px);
+  color: #8b1a1a;
+  border: 1.5px solid #8b1a1a;
+  padding: clamp(6px, 1vw, 11px) clamp(10px, 1.8vw, 22px);
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.3s, color 0.3s;
+  margin-top: 8px;
+  box-shadow: 4px 4px 0 0;
+}
+
+.action-btn:hover {
+  background: #8b1a1a;
+  color: #fff;
+}
+
+/* ── DOORS ── */
+.doors {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  /* overflow visible so seal straddles the seam */
+  overflow: visible;
+}
+
+.door {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+  flex-shrink: 0;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.door.left {
+  transform-origin: left center;
+  overflow: visible;
+  z-index: 12; /* above door.right so seal child renders on top */
+}
+.door.right {
+  transform-origin: right center;
+  z-index: 11;
+}
+
+.doors.open {
+  pointer-events: none;
+}
+
+.doors.open .door.left {
+  transform: translateX(-100%);
+}
+.doors.open .door.right {
+  transform: translateX(100%);
+}
+
+/* Each door has its own image */
+.door .door-face {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* clip the face even though door itself overflows for seal */
+  overflow: hidden;
+}
+
+.door.left .door-face {
+  background-image: url("image/Left.png");
+}
+
+.door.right .door-face {
+  background-image: url("image/right.png");
+}
+
+/* subtle seam shadow */
+.door.left .door-face::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 18px;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.35), transparent);
+  pointer-events: none;
+}
+
+.door.right .door-face::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 18px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.35), transparent);
+  pointer-events: none;
+}
+
+/* ── SEAL — child of .door.left so it travels with the left door ── */
+.seal {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(50%, -50%);
+  width: clamp(70px, 10vw, 180px);
+  height: clamp(70px, 10vw, 180px);
+  z-index: 50;
+  cursor: pointer;
+  /* no transition here — seal rides with the door's transform */
+  mix-blend-mode: lighten;
+}
+
+/* .seal:hover img {
+  transform: scale(1.06);
+  transition: transform 0.25s ease;
+} */
+
+/* .seal:active img {
+  transform: scale(0.93);
+  transition: transform 0.1s ease;
+} */
+
+.seal img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+/* fade out when open */
+.doors.open .seal {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── PARTICLES ── */
+#particles {
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.venue {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(16px, 1.4vw, 20px);
+  color: #5a1a1a;
+  line-height: 1.6;
+  margin-top: clamp(8px, 1.5%, 14px);
+  letter-spacing: 0.5px;
+}
+
+/* ══ MOBILE ══ */
+@media (max-width: 600px) {
+  body {
+    padding: 0;
+    height: 100vh;
+  }
+
+  .scene {
+    width: 100vw;
+    height: 100dvh;
+    border-radius: 0;
+  }
+
+  .door.left .door-face {
+    background-image: url("image/left-mobile.png");
+  }
+
+  .door.right .door-face {
+    background-image: url("image/right-mobile.png");
+  }
+
+  .seal img {
+    content: url("image/seal-mobile.png");
+  }
+
+  .seal {
+    width: clamp(75px, 22vw, 110px);
+    height: clamp(75px, 22vw, 110px);
+  }
+
+  .names-img-desktop {
+    display: none;
+  }
+
+  .names-img-mobile {
+    display: block;
+    height: clamp(80px, 30vw, 200px);
+    width: auto;
+    max-width: 90%;
+  }
+
+  .detail-msg {
+    font-size: 16px;
+  }
+
+  .invite-content h1 {
+    font-size: 24px;
+    letter-spacing: 4px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.3em;
+  }
+
+  .invite-content .names {
+    font-size: clamp(32px, 9vw, 48px);
+  }
+}

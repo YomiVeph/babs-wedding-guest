@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="rsvp.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=EB+Garamond:ital@1&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ══════════ RSVP ══════════ -->
+    <section class="rsvp-section" id="rsvp">
+      <p class="section-eyebrow">Kindly Reply</p>
+      <h2 class="section-title">Will you be joining us?</h2>
+      <div class="section-rule"></div>
+      <p class="rsvp-deadline">
+        Please RSVP by
+        <strong style="color: var(--gold-light)">March 25, 2026</strong>
+      </p>
+
+      <div class="form-card">
+        <div id="rsvp-form">
+          <div class="form-group">
+            <label class="form-label" for="fullname">Your Full Name</label>
+            <input
+              class="form-input"
+              type="text"
+              id="fullname"
+              placeholder="Enter your full name"
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Will you be attending?</label>
+            <div class="toggle-group">
+              <button
+                class="toggle-btn"
+                id="btn-yes"
+                onclick="setAttending(true)"
+              >
+                Yes, I'll be there
+              </button>
+              <button
+                class="toggle-btn"
+                id="btn-no"
+                onclick="setAttending(false)"
+              >
+                Regretfully, no
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group" id="plusone-section" style="display: none">
+            <label class="form-label">Are you bringing a plus one?</label>
+            <div class="toggle-group">
+              <button
+                class="toggle-btn"
+                id="btn-plus-yes"
+                onclick="setPlusOne(true)"
+              >
+                Yes
+              </button>
+              <button
+                class="toggle-btn"
+                id="btn-plus-no"
+                onclick="setPlusOne(false)"
+              >
+                No
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group plus-one-field" id="plusone-name-group">
+            <label class="form-label" for="plusname"
+              >Plus One's Full Name</label
+            >
+            <input
+              class="form-input"
+              type="text"
+              id="plusname"
+              placeholder="Enter their full name"
+            />
+          </div>
+
+          <button class="form-submit" onclick="submitRSVP()">
+            Send My RSVP ✦
+          </button>
+        </div>
+
+        <div class="success-msg" id="success-msg">
+          <div class="check">✦</div>
+          <h3>RSVP Received</h3>
+          <p id="success-text">We can't wait to celebrate with you.</p>
+        </div>
+      </div>
+    </section>
+    <script src="rsvp.js"></script>
+  </body>
+</html>
