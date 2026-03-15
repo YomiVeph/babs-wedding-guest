@@ -70,9 +70,11 @@
       <!-- Invitation content revealed behind the doors -->
       <div class="content-card" id="contentCard">
         <div class="invite-content">
-          <p class="eyebrow">You are cordially invited to the wedding</p>
-          <h1>Save the Date</h1>
-          <div class="names">
+          <p class="eyebrow reveal-item" style="--delay: 0.4s">
+            You are cordially invited to the wedding
+          </p>
+          <h1 class="reveal-item" style="--delay: 0.6s">Save the Date</h1>
+          <div class="names reveal-item" style="--delay: 0.9s">
             <img
               class="names-img-desktop"
               src="image/picture-name.png"
@@ -84,11 +86,11 @@
               alt="Tara & Tunde"
             />
           </div>
-          <div class="divider"></div>
-          <div class="detail-msg">
+          <div class="divider reveal-item" style="--delay: 1.2s"></div>
+          <div class="detail-msg reveal-item" style="--delay: 1.4s">
             kindly join us as we celebrate the beginning of forever
           </div>
-          <div class="event-details">
+          <div class="event-details reveal-item" style="--delay: 1.65s">
             <div class="detail-col">
               <span class="detail-label">SAT</span>
               <span class="detail-label">11:30</span>
@@ -101,10 +103,10 @@
               <span class="detail-label">2026</span>
             </div>
           </div>
-          <div class="venue">
+          <div class="venue reveal-item" style="--delay: 1.9s">
             12, First Avenue Housing Estate, Ibara<br />Adjacent Dr Spa Salon
           </div>
-          <div class="action-btns">
+          <div class="action-btns reveal-item" style="--delay: 2.15s">
             <a href="my-rsvp.html" class="action-btn">
               <span class="material-symbols-outlined">mail</span> RSVP HERE
             </a>
@@ -120,7 +122,7 @@
         </div>
       </div>
 
-      <canvas id="particles"></canvas>
+      <!-- <canvas id="particles"></canvas> -->
 
       <div class="doors" id="doors">
         <!-- Left door — seal lives here so it slides left with this door -->

@@ -264,7 +264,7 @@ body {
   position: absolute;
   right: 0;
   top: 50%;
-  transform: translate(50%, -50%);
+  transform: translate(40%, -50%);
   width: clamp(70px, 10vw, 180px);
   height: clamp(70px, 10vw, 180px);
   z-index: 50;
@@ -297,15 +297,33 @@ body {
   pointer-events: none;
 }
 
-/* ── PARTICLES ── */
-#particles {
-  position: absolute;
-  inset: 0;
-  display: block;
-  pointer-events: none;
-  z-index: 5;
+/* ── STAGGERED REVEAL ── */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-item {
   opacity: 0;
-  transition: opacity 1.2s ease;
+  transform: translateY(22px);
+}
+
+.content-card.revealed .reveal-item {
+  animation: fadeSlideUp 0.65s ease forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+/* Reset when doors close so re-opening replays the animation */
+.content-card:not(.revealed) .reveal-item {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: none;
 }
 
 .venue {
