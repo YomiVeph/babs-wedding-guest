@@ -60,7 +60,7 @@ body {
   letter-spacing: 0.4em;
   color: #5a1a1a;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .invite-content h1 {
@@ -110,8 +110,9 @@ body {
 }
 
 .detail-day {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(40px, 7vw, 72px);
+  font-family: "Cormorant Garamond" serif;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: 60px;
   font-weight: 300;
   color: #1a0505;
   line-height: 1;
@@ -125,22 +126,22 @@ body {
 }
 
 .detail-label {
-  font-family: "Cinzel", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: clamp(16px, 2vw, 20px);
   letter-spacing: clamp(1px, 0.3vw, 3px);
   color: #000;
+  font-variant-numeric: lining-nums proportional-nums;
 }
 
 .detail-divider {
-  font-size: clamp(20px, 4vw, 40px);
-  color: #333;
-  font-weight: 100;
-  line-height: 1;
+  width: 1px;
+  height: clamp(40px, 7vw, 80px);
+  background-color: #333;
 }
 
 .action-btns {
   display: flex;
-  gap: clamp(10px, 2vw, 24px);
+  gap: 32px;
   justify-content: center;
   margin-top: clamp(8px, 1.5%, 16px);
   padding: 8px;
@@ -148,14 +149,14 @@ body {
 }
 
 .action-btn .material-symbols-outlined {
-  font-size: clamp(14px, 1.8vw, 18px);
+  font-size: 16px;
   line-height: 1;
   vertical-align: middle;
 }
 
 .action-btn {
-  font-family: "Cinzel", serif;
-  font-size: clamp(7px, 1vw, 10px);
+  font-family: serif;
+  font-size: 16px;
   letter-spacing: clamp(1px, 0.3vw, 2px);
   color: #8b1a1a;
   border: 1.5px solid #8b1a1a;
@@ -229,11 +230,11 @@ body {
 }
 
 .door.left .door-face {
-  background-image: url("image/Left.png");
+  background-image: url("image/Left.jpg");
 }
 
 .door.right .door-face {
-  background-image: url("image/right.png");
+  background-image: url("image/right.jpg");
 }
 
 /* subtle seam shadow */
@@ -330,9 +331,11 @@ body {
   font-family: "Cormorant Garamond", serif;
   font-size: clamp(16px, 1.4vw, 20px);
   color: #5a1a1a;
-  line-height: 1.6;
+  line-height: 1.2;
   margin-top: clamp(8px, 1.5%, 14px);
   letter-spacing: 0.5px;
+  text-transform: capitalize;
+  font-variant-numeric: lining-nums proportional-nums;
 }
 
 /* ══ MOBILE ══ */
@@ -349,11 +352,11 @@ body {
   }
 
   .door.left .door-face {
-    background-image: url("image/left-mobile.png");
+    background-image: url("image/left-mobile.jpg");
   }
 
   .door.right .door-face {
-    background-image: url("image/right-mobile.png");
+    background-image: url("image/right-mobile.jpg");
   }
 
   .seal img {
