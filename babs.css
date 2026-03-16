@@ -127,7 +127,7 @@ body {
 
 .detail-label {
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: 20px;
   letter-spacing: clamp(1px, 0.3vw, 3px);
   color: #000;
   font-variant-numeric: lining-nums proportional-nums;
